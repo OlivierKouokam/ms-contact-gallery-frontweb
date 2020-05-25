@@ -1,0 +1,49 @@
+<!-- <strong> about works! </strong> -->
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">About Component</div>
+    <div class="panel-body">
+      <div>
+        <h3>Infos</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Nom: <strong>{{infos.nom}}</strong></li>
+          <li class="list-group-item">Email: <strong>{{infos.email}}</strong> </li>
+          <li class="list-group-item">Tél: <strong>{{infos.tel}}</strong></li>
+        </ul>
+      </div>
+      <div>
+      <!-- <div *ngIf="comments.length > 0; else noComments"> -->
+        <div>
+          <!-- <div class="form-group">
+            <label class="control-label">Message:</label>
+            <input type="text" [(ngModel)]="commentaire.message">
+            <button class="btn btn-primary" (click)="onAddCommentaire()" [disabled]="!commentaire.message">Ajouter Commentaire</button>
+          </div> -->
+          <form #f="ngForm" (ngSubmit)="onAddCommentaire(f.value)">
+              <div class="form-group">
+                <label class="control-label">Message:</label>
+                <input required="" ngModel="" name="message" type="text" [(ngModel)]="commentaire.message">
+                <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Ajouter Commentaire</button>
+              </div>
+            </form>
+        </div>
+        <h3>Commentaires :</h3>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let c of comments">
+            {{c.message}},
+            <span class="badge">{{c.date|date:'dd/MM/yyyy:HH:mm:ss'}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <div>
+    <input type="text" [(ngModel)]="comment.message">
+    <button (click)="addComment()" [disabled]="newComment">Add Comment</button>
+  </div> -->
+  
+  <!-- <ng-template #noComments>
+    <p>Liste des commentaires est vide</p>
+  </ng-template> -->

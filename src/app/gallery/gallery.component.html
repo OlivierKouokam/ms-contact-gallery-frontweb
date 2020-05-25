@@ -1,0 +1,42 @@
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">Gallery Component</div>
+    <div class="panel-body">
+      <!-- <strong>Gallery</strong>
+      <p>
+        gallery works!
+      </p> -->
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="form-group">
+          <label>Mot Clé:</label>
+          <input type="text" name="motCle" ngModel required [(ngModel)]="motCle">
+          <button type="submit" class="btn btn-primary">Chercher</button>
+        </div>
+      </form>
+      <div class="row">
+        <!-- <div *ngIf="pagePhotos"></div> -->
+          <div *ngFor="let p of pagePhotos?.hits" class="col-md-3">
+            <div class="panel panel-primary cadre">
+              <div class="panel-heading"> 
+                {{motCle}}
+                <!-- <img class="img-circle" src="{{p.userImageURL}}" width="50" height="50"> -->
+                <!-- {{p.tags}} -->
+              </div>
+              <div class="panel-body">
+                <p>User: {{p.user}}</p>              
+                <img src="{{p.previewURL}}" alt="">              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <ul class="nav nav-pills">
+            <li [ngClass]="{'active': currentPage==i+1}" class="clickable" *ngFor="let page of pages; let i=index">
+              <a (click)="goToPage(i)">{{i}}</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>

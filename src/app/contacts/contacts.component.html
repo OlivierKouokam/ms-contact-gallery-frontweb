@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Liste des Contacts</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Mot Clé :</label>
+        <input type="text" [(ngModel)]="motCle">
+        <button class="btn btn-primary" (click)="chercher()">Chercher</button>
+      </div>
+      <table class="table table-striped" *ngIf="pageContacts" >
+        <tr>
+          <th>ID</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Actions</th>
+        </tr>
+        <tr *ngFor="let c of pageContacts._embedded.contacts">
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+          <td>
+            <a (click)="onEditContact(c.id)" class="btn btn-warning">Modifier</a>
+            <a (click)="onDeleteContact(c)" class="btn btn-danger">Supprimer</a>
+          </td>
+        </tr>
+      </table>
+      <div class="container">
+        <ul class="nav nav-pills">
+          <li [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages; let i=index" (click)="goToPage(i)">
+            <a class="clickable">{{i}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
