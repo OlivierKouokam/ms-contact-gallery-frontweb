@@ -1,3 +1,11 @@
+# TP Angular avec Mohamed Youssfi
+
+## Application de Gestion des Contacts - Partie Frontend
+
+Composant *about* pour afficher les commentaires rentrées sur le composant en temps réel
+Composants *Contact* et *Nouveau Contact* pour le CRUD sur les contacts
+Composant *Gallery* pour la consommation de l'API REST pixabay.com d'images
+
 # MonProjetAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
